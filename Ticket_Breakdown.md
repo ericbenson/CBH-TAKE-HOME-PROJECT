@@ -36,6 +36,7 @@ Ticket #1: Create a new FacilityAgentID database table
         
 
 Ticket #2: Provide CRUD api routes for the new FacilityAgentID database table
+
     Acceptance criteria: 
         Create, Read, Update, and Delete API routes exist for the new FacilityAgentID table with following signatures 
         createFacilityAgentID(facility_id, agent_id, custom_id) => returns 201, 400
@@ -54,6 +55,7 @@ Ticket #2: Provide CRUD api routes for the new FacilityAgentID database table
 
 
 Ticket #3: Update the Facilities admin portal with custom Agent ID capabilities
+
     Acceptance criteria: 
         As a Facility Admin, I want the ability to add/update/remove custom agent IDs in real-time for the people at my facility.   
     Time/Effort estimates: 
@@ -63,6 +65,7 @@ Ticket #3: Update the Facilities admin portal with custom Agent ID capabilities
 
 
 Ticket #4: Add a step to the generateReport process which replaces the Agent _id with the agent's custom_id for that facility
+
     Acceptance criteria: 
         When the generateReport function is run, it is populated with the custom Agent ID if it exists. Otherwise it is populated with the existing Agent ID
     Time/Effort estimates:
