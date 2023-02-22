@@ -18,13 +18,16 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 ## Your Breakdown Here
 
 Ticket #1: Create a new FacilityAgentID database table 
+
     Acceptance criteria: A new DB table has been created with the following schema: 
+    ```
         {
         _id: unique identifier,
             facility_id: ref to facility _id,
             agent_id: ref to agent _id,
-            custom_id: custom Id facility preferes to use for agent 
+            custom_id: custom Id facility prefers to use for agent 
         }
+    ```
     Time/Effort estimates: 
         This ticket should not take a single developer more than 1 hour.  Care must be taken when adding new tables to the production DB. 
 
@@ -56,7 +59,7 @@ Ticket #3: Update the Facilities admin portal with custom Agent ID capabilities
     Time/Effort estimates: 
         Creating the client-facing interfaces should not take a single developer over a day if approved designs already exist. 
     Implementation details: 
-        Update the existing admin interface to include an area where custom agent IDs can be added/updated/removed. If approved design already exists, implement as designed unless you find the design does not match the use case or you think it can be improved. In these cases, get in contact with the designer to discuss your thoughts. One possible implementation could be a page on the admin portal that resembles a spreadsheet with a column with the existing Agent ID, and another column with the custom agent ID if it exists. The spreadsheet gives the admin the capability to add/update/delete the custom agent ID by interacting with the appropriate buttons on the page. The page will listen for user input and call the appropriate CRUD route on user submit. After successful sumbit, the page will update with the latest information.  
+        Update the existing admin interface to include an area where custom agent IDs can be added/updated/removed. If approved design already exists, implement as designed unless you find the design does not match the use case or you think it can be improved. In these cases, get in contact with the designer to discuss your thoughts. One possible implementation could be a page on the admin portal that resembles a spreadsheet with a column with the existing Agent ID, and another column with the custom agent ID if it exists. The spreadsheet gives the admin the capability to add/update/delete the custom agent ID by interacting with the appropriate buttons on the page. The page will listen for user input and call the appropriate CRUD route on user submit. After successful submit, the page will update with the latest information.  
 
 
 Ticket #4: Add a step to the generateReport process which replaces the Agent _id with the agent's custom_id for that facility
@@ -66,5 +69,3 @@ Ticket #4: Add a step to the generateReport process which replaces the Agent _id
         This should not take a single developer more than half a day.  
     Implementation details: 
         Currently when the generateReport function is run, the facilityId is known (because it is used to run the getShiftsByFacility function) and the agentId is known (because it is currently populated in the report). Before generating the report in PDF form, the shift data that is used to populate the report needs to be updated with the facility agent id. This can be done by performing a query on the FacilityAgentID database table using both the facilityId and agentId as keys for the query. If a match is found, update the agent ID on the shift to the custom agent ID found from the query. If nothing is found, keep the existing agent ID. 
-
-Ticket #5: Optional - Include API access has the Authentication 
